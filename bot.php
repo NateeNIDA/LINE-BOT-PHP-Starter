@@ -31,18 +31,7 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			
-			// Step 1
-			$cSession = curl_init();
-			// Step 2
-			curl_setopt($cSession,CURLOPT_URL,"http://1.179.187.126/linegps/insertpoi.php?gpsname=%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99&gpsgroup=olt&gpslat=13.12346843&gpslong=101.2564864444");
-			curl_setopt($cSession,CURLOPT_RETURNTRANSFER,true);
-			curl_setopt($cSession,CURLOPT_HEADER, false);
-			// Step 3
-			$result=curl_exec($cSession);
-			// Step 4
-			curl_close($cSession);
-			// Step 5
-			echo $result;
+			
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
