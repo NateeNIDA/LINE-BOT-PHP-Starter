@@ -48,7 +48,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'location') {
 			
 			$latitude = $event['message']['latitude'];
-			$latitude = $event['message']['latitude'];
+			$longitutde = $event['message']['longitutde'];
 			
 			// Get text sent
 			$text = "บันทึก Location เรียบร้อยแล้ว";
