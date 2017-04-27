@@ -2,7 +2,7 @@
 
 function defalutReply(&$event,$access_token){
 	// Get text sent
-	$text = "กรุณาส่ง Location เพื่อบันทึกข้อมูลลงฐานข้อมูลพิกัด ภ.5 สามารถดูหน้าแผนที่ได้ที่ http://1.179.187.126/linegps/linemap.php";
+	$text = "กรุณาส่ง Location เพื่อบันทึกข้อมูลลงฐานข้อมูลพิกัด ภ.5 โดยท่านสามารถดูหน้าแผนที่ได้ที่ http://1.179.187.126/linegps/linemap.php";
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 
@@ -34,8 +34,25 @@ function defalutReply(&$event,$access_token){
 function saveGps1(&$event,$access_token){
 	$latitude = $event['message']['latitude'];
 	$longitutde = $event['message']['longitude'];
+
+
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	// Send GPD to My server====Step 1
+	$cSession = curl_init();
+	// Step 2
+	curl_setopt($cSession,CURLOPT_URL,"http://1.179.187.126/linegps/insertpoi.php?gpsname=ทดสอบ&gpsgroup=FTTx&gpslat=$latitude&gpslong=$longitutde");
+	curl_setopt($cSession,CURLOPT_RETURNTRANSFER,true);
+	curl_setopt($cSession,CURLOPT_HEADER, false);
+	// Step 3
+	$result=curl_exec($cSession);
+	// Step 4
+	curl_close($cSession);
+	// ====
+
+
 	// Get text sent
-	$text = "บันทึก Location เรียบร้อยแล้ว";
+	$text = $result; //"บันทึก Location เรียบร้อยแล้ว";
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
@@ -49,20 +66,6 @@ function saveGps1(&$event,$access_token){
 		'replyToken' => $replyToken,
 		'messages' => [$messages],
 	];
-	$post = json_encode($data);
-	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-	// Step 1
-	$cSession = curl_init();
-	// Step 2
-	curl_setopt($cSession,CURLOPT_URL,"http://1.179.187.126/linegps/insertpoi.php?gpsname=ทดสอบ&gpsgroup=FTTx&gpslat=$latitude&gpslong=$longitutde");
-	curl_setopt($cSession,CURLOPT_RETURNTRANSFER,true);
-	curl_setopt($cSession,CURLOPT_HEADER, false);
-	// Step 3
-	$result=curl_exec($cSession);
-	// Step 4
-	curl_close($cSession);
-	// Step 5
-	echo $result;
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
