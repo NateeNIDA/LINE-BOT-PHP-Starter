@@ -83,13 +83,16 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message') {
-			defalutReply($event);
+			
+			if ($event['message']['type'] == 'location') {
+				saveGps1($event);
+			}else{
+				defalutReply($event);
+			}
+
 		}
 
-		if ($event['message']['type'] == 'location') {
-			saveGps1($event);
 
-		}
 
 	}
 
