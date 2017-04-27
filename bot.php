@@ -1,6 +1,6 @@
 <?php
 
-function defalutReply($event){
+function defalutReply(&$event){
 	if ($event['type'] == 'message') {
 		// Get text sent
 		$text = "userID : ".$event['source']['userId'];
@@ -36,7 +36,7 @@ function defalutReply($event){
 		echo $result . "\r\n";
 }
 
-function saveGps1($event){
+function saveGps1(&$event){
 
 		// Get text sent
 		$text = "userID : ".$event['source']['userId'];
