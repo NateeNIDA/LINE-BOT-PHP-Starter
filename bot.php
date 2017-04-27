@@ -36,8 +36,7 @@ function saveGps1(&$event,$access_token){
 	$longitutde = $event['message']['longitude'];
 
 
-	$post = json_encode($data);
-	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
 	// Send GPD to My server====Step 1
 	$cSession = curl_init();
 	// Step 2
@@ -66,6 +65,8 @@ function saveGps1(&$event,$access_token){
 		'replyToken' => $replyToken,
 		'messages' => [$messages],
 	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
