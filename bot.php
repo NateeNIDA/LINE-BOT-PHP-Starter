@@ -2,7 +2,7 @@
 
 function defalutReply(&$event,$access_token){
 	// Get text sent
-	$text = "userID : ".$event['source']['userId'];
+	$text = "กรุณาส่ง Location เพื่อบันทึกข้อมูลลงฐานข้อมูลพิกัด ภ.5 สามารถดูหน้าแผนที่ได้ที่ http://1.179.187.126/linegps/linemap.php";
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 
@@ -21,8 +21,6 @@ function defalutReply(&$event,$access_token){
 	$post = json_encode($data);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
-
-
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -31,8 +29,6 @@ function defalutReply(&$event,$access_token){
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	$result = curl_exec($ch);
 	curl_close($ch);
-
-	echo $result . "\r\n";
 }
 
 function saveGps1(&$event,$access_token){
@@ -58,7 +54,7 @@ function saveGps1(&$event,$access_token){
 	// Step 1
 	$cSession = curl_init();
 	// Step 2
-	curl_setopt($cSession,CURLOPT_URL,"http://1.179.187.126/linegps/insertpoi.php?gpsname=test&gpsgroup=olt&gpslat=$latitude&gpslong=$longitutde");
+	curl_setopt($cSession,CURLOPT_URL,"http://1.179.187.126/linegps/insertpoi.php?gpsname=ทดสอบ&gpsgroup=FTTx&gpslat=$latitude&gpslong=$longitutde");
 	curl_setopt($cSession,CURLOPT_RETURNTRANSFER,true);
 	curl_setopt($cSession,CURLOPT_HEADER, false);
 	// Step 3
