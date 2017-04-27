@@ -51,7 +51,7 @@ function saveGps1(&$event,$access_token){
 
 
 	// Get text sent
-	$text = "บันทึก Location เรียบร้อยแล้ว";
+	$text = "บันทึก Location เรียบร้อยแล้ว ดูตำแหน่งได้ที่ http://1.179.187.126/linemapzoom.php?gpslat=".$latitude."&gpslong=".$longitutde;
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
