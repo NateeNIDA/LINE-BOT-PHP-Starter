@@ -37,7 +37,7 @@ function defalutReply($event){
 }
 
 function saveGps1($event){
-	if ($event['type'] == 'message') {
+
 		// Get text sent
 		$text = "userID : ".$event['source']['userId'];
 		// Get replyToken
@@ -83,8 +83,9 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-
+			if ($event['type'] == 'message') {
 			defalutReply($event);
+		}
 
 			if ($event['message']['type'] == 'location') {
 				saveGps1($event);
