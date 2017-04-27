@@ -51,7 +51,7 @@ function saveGps1(&$event,$access_token){
 
 
 	// Get text sent
-	$text = $result; //"บันทึก Location เรียบร้อยแล้ว";
+	$text = "บันทึก Location เรียบร้อยแล้ว";
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
