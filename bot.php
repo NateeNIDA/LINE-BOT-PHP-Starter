@@ -318,9 +318,7 @@ if (!is_null($events['events'])) {
 					defalutReply($event,$access_token);
 				}
 
-			}
-
-			if($userstate==1){
+			}else if($userstate==1){
 				if($event['message']['type'] == 'text'){
 					$text = $event['message']['text']
 
@@ -349,6 +347,9 @@ if (!is_null($events['events'])) {
 				else{
 					ansMessage($event,$access_token,"กรุณาพิมพ์ใหม่")
 				}
+			}
+			else{
+				defalutReply();
 			}
 
 		}
