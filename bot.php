@@ -216,7 +216,7 @@ function updateTempGroup($group,$userid){
 	// ====
 
 	// Get text sent
-	$text = "บันทึก Location เรียบร้อยแล้ว ดูตำแหน่งได้ที่ http://1.179.187.126/linegps/linemapzoom.php?gpslat=".$latitude."&gpslong=".$longitutde;
+	$text = "บันทึก Location เรียบร้อยแล้ว ดูตำแหน่งได้ที่ http://1.179.187.126/linemapzoom.php?gpslat=".$latitude."&gpslong=".$longitutde;
 	// Get replyToken
 	$replyToken = $event['replyToken'];
 	// Build message to reply back
