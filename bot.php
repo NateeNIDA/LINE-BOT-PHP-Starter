@@ -355,7 +355,7 @@ if (!is_null($events['events'])) {
 					defalutReply($event,$access_token);
 				}
 
-			}else if($userstate==1){
+			}elseif($userstate==1){
 
 				if($event['message']['type'] == 'text'){
 					$text = $event['message']['text']
