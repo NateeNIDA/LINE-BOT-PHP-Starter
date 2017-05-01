@@ -344,6 +344,7 @@ if (!is_null($events['events'])) {
 			$userstate = checkstate($userid);
 
 			sendMsg($event,$access_token,"ทดสอบ1");
+			sendMsg($event,$access_token,"ทดสอบ1");
 
 
 			if($userstate == 0){
