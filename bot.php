@@ -378,12 +378,12 @@ if (!is_null($events['events'])) {
 						delTemp($userid);
 						delState($userid);
 					}else{
-						ansMessage($event,$access_token,"กรุณาพิมพ์ใหม่")
+						ansMessage($event,$access_token,"กรุณาพิมพ์ใหม่");
 					}
 
 				}
 				else{
-					ansMessage($event,$access_token,"กรุณาพิมพ์ใหม่")
+					ansMessage($event,$access_token,"กรุณาพิมพ์ใหม่");
 				}
 			}
 			else{
