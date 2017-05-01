@@ -345,7 +345,7 @@ if (!is_null($events['events'])) {
 
 			sendMsg($event,$access_token,"ทดสอบ1");
 
-/*
+
 			if($userstate == 0){
 				sendMsg($event,$access_token,"ทดสอบ2");
 				if ($event['message']['type'] == 'location') {
@@ -358,7 +358,7 @@ if (!is_null($events['events'])) {
 			}elseif($userstate==1){
 
 				if($event['message']['type'] == 'text'){
-					$text = $event['message']['text']
+					$text = $event['message']['text'];
 
 					if($text>=1 &&$text<=4){
 						if($text==1){
@@ -390,7 +390,7 @@ if (!is_null($events['events'])) {
 				defalutReply();
 			}
 
-			*/
+			//*/
 		}
 
 	}
