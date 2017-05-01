@@ -31,6 +31,39 @@ function defalutReply(&$event,$access_token){
 	curl_close($ch);
 }
 
+
+function sendMsg(&$event,$access_token,$text){
+	// Get text sent
+	//$text = "กรุณาส่ง Location เพื่อบันทึกข้อมูลลงฐานข้อมูลพิกัด ภ.5 โดยท่านสามารถดูหน้าแผนที่ได้ที่ http://1.179.187.126/linegps/linemap.php";
+	// Get replyToken
+	$replyToken = $event['replyToken'];
+
+	// Build message to reply back
+	$messages = [
+		'type' => 'text',
+		'text' => $text
+	];
+
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/reply';
+	$data = [
+		'replyToken' => $replyToken,
+		'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+}
+
+
 function ansMessage(&$event,$access_token,$textm){
 	// Get text sent
 	$text = $textm;
@@ -310,6 +343,9 @@ if (!is_null($events['events'])) {
 
 			$userstate = checkstate($userid);
 
+			sendMsg($event,$access_token,"ทดสอบ");
+			/*
+
 			if($userstate == 0){
 				if ($event['message']['type'] == 'location') {
 					addTempGPS($event,$access_token,$userid);
@@ -351,6 +387,7 @@ if (!is_null($events['events'])) {
 			else{
 				defalutReply();
 			}
+			*/
 
 		}
 
