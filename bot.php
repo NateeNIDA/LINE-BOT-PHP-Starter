@@ -345,7 +345,7 @@ if (!is_null($events['events'])) {
 
 			sendMsg($event,$access_token,"ทดสอบ1");
 
-
+/*
 			if($userstate == 0){
 				sendMsg($event,$access_token,"ทดสอบ2");
 				if ($event['message']['type'] == 'location') {
@@ -390,7 +390,7 @@ if (!is_null($events['events'])) {
 				defalutReply();
 			}
 
-
+			*/
 		}
 
 	}
