@@ -387,6 +387,7 @@ if (!is_null($events['events'])) {
 				}
 			}
 			else{
+				sendMsg($event,$access_token,"ทดสอบ3");
 				defalutReply();
 			}
 
