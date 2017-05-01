@@ -32,7 +32,7 @@ function defalutReply(&$event,$access_token){
 }
 
 
-function sendMsg(&$event,$access_token,$text){
+function sendMsg($event,$access_token,$text){
 	// Get text sent
 	//$text = "กรุณาส่ง Location เพื่อบันทึกข้อมูลลงฐานข้อมูลพิกัด ภ.5 โดยท่านสามารถดูหน้าแผนที่ได้ที่ http://1.179.187.126/linegps/linemap.php";
 	// Get replyToken
