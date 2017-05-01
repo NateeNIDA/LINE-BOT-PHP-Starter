@@ -376,7 +376,7 @@ if (!is_null($events['events'])) {
 
 						temp2Poi($userid);
 						delTemp($userid);
-						delState($userid)
+						delState($userid);
 					}else{
 						ansMessage($event,$access_token,"กรุณาพิมพ์ใหม่")
 					}
