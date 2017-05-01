@@ -343,10 +343,11 @@ if (!is_null($events['events'])) {
 
 			$userstate = checkstate($userid);
 
-			sendMsg($event,$access_token,$userstate);
-			/*
+			sendMsg($event,$access_token,"ทดสอบ1");
+
 
 			if($userstate == 0){
+				sendMsg($event,$access_token,"ทดสอบ2");
 				if ($event['message']['type'] == 'location') {
 					addTempGPS($event,$access_token,$userid);
 					addstate($userid,1);
@@ -355,6 +356,7 @@ if (!is_null($events['events'])) {
 				}
 
 			}else if($userstate==1){
+
 				if($event['message']['type'] == 'text'){
 					$text = $event['message']['text']
 
@@ -387,7 +389,7 @@ if (!is_null($events['events'])) {
 			else{
 				defalutReply();
 			}
-			*/
+
 
 		}
 
