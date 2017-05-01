@@ -356,7 +356,7 @@ if (!is_null($events['events'])) {
 				}
 
 			}elseif($userstate==1){
-
+				sendMsg($event,$access_token,"ทดสอบ3");
 				if($event['message']['type'] == 'text'){
 					$text = $event['message']['text'];
 
