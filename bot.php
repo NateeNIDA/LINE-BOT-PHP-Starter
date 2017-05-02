@@ -232,7 +232,7 @@ function addTempGPS(&$event,$access_token,$userid){
 	curl_close($ch);
 }
 
-function updateTempGroup((&$event,$group,$userid,$access_token){
+function updateTempGroup(&$event,$group,$userid,$access_token){
 	$latitude = $event['message']['latitude'];
 	$longitutde = $event['message']['longitude'];
 
