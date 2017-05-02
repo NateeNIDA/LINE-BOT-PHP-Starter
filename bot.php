@@ -232,7 +232,7 @@ function addTempGPS(&$event,$access_token,$userid){
 	curl_close($ch);
 }
 
-function updateTempGroup($group,$userid){
+function updateTempGroup($group,$userid,$access_token){
 	$latitude = $event['message']['latitude'];
 	$longitutde = $event['message']['longitude'];
 
@@ -364,16 +364,16 @@ if (!is_null($events['events'])) {
 
 					if($text>=1 &&$text<=4){
 						if($text==1){
-							updateTempGroup("ADSL",$userid);
+							updateTempGroup("ADSL",$userid,$access_token);
 						}
 						if($text==2){
-							updateTempGroup("FTTX",$userid);
+							updateTempGroup("FTTX",$userid,$access_token);
 						}
 						if($text==3){
-							updateTempGroup("WINET",$userid);
+							updateTempGroup("WINET",$userid,$access_token);
 						}
 						if($text==4){
-							updateTempGroup("LLI",$userid);
+							updateTempGroup("LLI",$userid,$access_token);
 						}
 
 						temp2Poi($userid);
