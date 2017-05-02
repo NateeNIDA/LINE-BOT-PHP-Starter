@@ -349,7 +349,7 @@ if (!is_null($events['events'])) {
 
 
 			if($userstate == 0){
-				sendMsg($event,$access_token,"ทดสอบ2");
+				//sendMsg($event,$access_token,"ทดสอบ2");
 				if ($event['message']['type'] == 'location') {
 					addTempGPS($event,$access_token,$userid);
 					addstate($userid,1);
@@ -358,7 +358,7 @@ if (!is_null($events['events'])) {
 				}
 
 			}elseif($userstate==1){
-				sendMsg($event,$access_token,"ทดสอบ3");
+				//sendMsg($event,$access_token,"ทดสอบ3");
 				if($event['message']['type'] == 'text'){
 					$text = $event['message']['text'];
 
@@ -389,8 +389,8 @@ if (!is_null($events['events'])) {
 				}
 			}
 			else{
-				sendMsg($event,$access_token,"ทดสอบ4");
-				defalutReply();
+				//sendMsg($event,$access_token,"ทดสอบ4");
+				defalutReply($event,$access_token);
 			}
 
 			//*/
